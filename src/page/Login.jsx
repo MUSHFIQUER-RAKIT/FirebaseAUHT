@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router";
-import { loginWithEmailAndPassword } from "../firebase";
+import { loginWithEmailAndPassword, signInWithGoogle } from "../firebase";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -12,6 +12,17 @@ export default function Login() {
 
     try {
       const user = await loginWithEmailAndPassword(email, password);
+      console.log(user);
+      navigate("/home");
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function handleSocialLogin(event) {
+    event.preventDefault();
+    try {
+      const user = await signInWithGoogle();
       console.log(user);
       navigate("/home");
     } catch (error) {
@@ -50,9 +61,15 @@ export default function Login() {
         <div>
           <button
             onClick={handleLogin}
-            className="bg-black text-white p-1 rounded-md mx-2"
+            className="bg-blue-700 text-white p-1 rounded-md mx-2"
           >
             Login
+          </button>
+          <button
+            onClick={handleSocialLogin}
+            className="bg-amber-300 text-white p-1 rounded-md mx-2"
+          >
+            Login with Google
           </button>
         </div>
       </form>

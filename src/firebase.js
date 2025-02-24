@@ -1,17 +1,48 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyA0om_RHb2CRJoq_3C40IsSRbcPgTf-_PA",
-  authDomain: "readbooks-ac77f.firebaseapp.com",
-  projectId: "readbooks-ac77f",
-  storageBucket: "readbooks-ac77f.firebasestorage.app",
-  messagingSenderId: "1045260559855",
-  appId: "1:1045260559855:web:e77baf198e51ca4967021a",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+const registerWithEmailAndPassword = async (email, password) => {
+  try {
+    const response = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+
+    return response.user;
+  } catch (error) {
+    throw error;
+  }
+};
+
+const loginWithEmailAndPassword = async (email, password) => {
+  try {
+    const response = await signInWithEmailAndPassword(auth, email, password);
+    return response;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export { loginWithEmailAndPassword, registerWithEmailAndPassword };

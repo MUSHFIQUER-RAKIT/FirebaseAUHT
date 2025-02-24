@@ -20,9 +20,9 @@ export default function Login() {
   }
 
   return (
-    <div>
-      <h1>LogIn</h1>
-      <form>
+    <div className="flex flex-col p-4 justify-center items-center">
+      <h1 className="text-3xl my-2">LogIn</h1>
+      <form className="flex flex-col justify-center items-center">
         <div className="my-1">
           <label htmlFor="email">Email Address</label>
           <input
@@ -48,13 +48,24 @@ export default function Login() {
           />
         </div>
         <div>
-          <button onClick={handleLogin}>Login</button>
+          <button
+            onClick={handleLogin}
+            className="bg-black text-white p-1 rounded-md mx-2"
+          >
+            Login
+          </button>
         </div>
       </form>
       <p className="my-2">
         No Account?{<br />}{" "}
         <NavLink to="/register" className="underline text-blue-600">
           Register Now
+        </NavLink>
+      </p>
+      <p className="my-2">
+        Forgot Password?{" "}
+        <NavLink to="/reset" className="underline text-blue-600">
+          Reset your Password
         </NavLink>
       </p>
     </div>

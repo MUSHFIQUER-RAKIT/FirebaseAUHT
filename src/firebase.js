@@ -1,8 +1,10 @@
+/* eslint-disable no-useless-catch */
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import {
   createUserWithEmailAndPassword,
   getAuth,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
 } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -45,4 +47,18 @@ const loginWithEmailAndPassword = async (email, password) => {
   }
 };
 
-export { loginWithEmailAndPassword, registerWithEmailAndPassword };
+const sendPasswordRest = async email => {
+  try {
+    const response = await sendPasswordResetEmail(auth, email);
+    return response;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export {
+  auth,
+  loginWithEmailAndPassword,
+  registerWithEmailAndPassword,
+  sendPasswordRest,
+};

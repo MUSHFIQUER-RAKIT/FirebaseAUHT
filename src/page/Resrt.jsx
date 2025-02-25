@@ -1,20 +1,9 @@
 import { useState } from "react";
-import { NavLink, useNavigate } from "react-router";
+import { NavLink } from "react-router";
 import { sendPasswordRest } from "../firebase";
 
 export default function Reset() {
   const [email, setEmail] = useState("");
-  const navigate = useNavigate();
-
-  async function handlePassReset() {
-    try {
-      await sendPasswordRest(email);
-      navigate("/");
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
   return (
     <div className="flex flex-col p-4 justify-center items-center">
       <h1 className="text-3xl my-2">Reset Your Password</h1>
@@ -27,7 +16,7 @@ export default function Reset() {
           className="mx-2 my-2 p-1 border border-gray-100 rounded-sm"
         />
         <button
-          onClick={handlePassReset}
+          onClick={() => sendPasswordRest(email)}
           className="bg-black text-white p-1 rounded-md mx-2"
         >
           Send

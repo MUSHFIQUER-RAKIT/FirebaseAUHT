@@ -34,14 +34,13 @@ const registerWithEmailAndPassword = async (email, password) => {
       email,
       password
     );
-
     return response.user;
   } catch (error) {
     throw error;
   }
 };
 
-const loginWithEmailAndPassword = async (email, password) => {
+const loginWithEmailPassword = async (email, password) => {
   try {
     const response = await signInWithEmailAndPassword(auth, email, password);
     return response.user;
@@ -55,7 +54,7 @@ const sendPasswordRest = async email => {
     await sendPasswordResetEmail(auth, email);
     return true;
   } catch (error) {
-    throw error;
+    console.log(error);
   }
 };
 
@@ -70,7 +69,7 @@ const signInWithGoogle = async () => {
 
 export {
   auth,
-  loginWithEmailAndPassword,
+  loginWithEmailPassword,
   registerWithEmailAndPassword,
   sendPasswordRest,
   signInWithGoogle,

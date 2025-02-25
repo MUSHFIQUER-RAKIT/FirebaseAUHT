@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router";
-import { loginWithEmailAndPassword, signInWithGoogle } from "../firebase";
+import { loginWithEmailPassword, signInWithGoogle } from "../firebase";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -11,8 +11,7 @@ export default function Login() {
     event.preventDefault();
 
     try {
-      const user = await loginWithEmailAndPassword(email, password);
-      console.log(user);
+      const user = await loginWithEmailPassword(email, password);
       navigate("/home");
     } catch (error) {
       console.log(error);
@@ -22,8 +21,7 @@ export default function Login() {
   async function handleSocialLogin(event) {
     event.preventDefault();
     try {
-      const user = await signInWithGoogle();
-      console.log(user);
+      await signInWithGoogle();
       navigate("/home");
     } catch (error) {
       console.log(error);

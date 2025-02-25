@@ -3,19 +3,18 @@ import { NavLink, useNavigate } from "react-router";
 import { registerWithEmailAndPassword } from "../firebase";
 
 export default function Register() {
-  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async event => {
     event.preventDefault();
-
     try {
       const user = await registerWithEmailAndPassword(email, password);
-      console.log(user);
       navigate("/login");
-    } catch (err) {
-      console.log(err);
+      console.log(user);
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -24,7 +23,7 @@ export default function Register() {
       <h1 className="text-3xl my-2">Register</h1>
       <form className="flex flex-col">
         <div className="my-1">
-          <label htmlFor="email">Email Address</label>
+          <label htmlFor="email">Email Address:</label>
           <input
             type="email"
             id="email"
@@ -36,7 +35,7 @@ export default function Register() {
           />
         </div>
         <div>
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">Password:</label>
           <input
             type="password"
             id="password"
@@ -50,9 +49,9 @@ export default function Register() {
         <button
           type="submit"
           onClick={handleSubmit}
-          className="bg-black text-white p-1 rounded-md m-auto"
+          className="bg-indigo-500 text-white p-1 rounded-md m-auto"
         >
-          Register
+          Submit
         </button>
       </form>
       <p className="my-2">

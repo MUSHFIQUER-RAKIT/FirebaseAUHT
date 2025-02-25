@@ -4,6 +4,5 @@ import { auth } from "../firebase";
 
 export default function PrivateRoutes() {
   const [user, loading, error] = useAuthState(auth);
-  if (loading) return <p>Loading user data...</p>;
-  return <>{user ? <Outlet /> : <Navigate to="/login" />}</>;
+  return <>{user ? <Outlet /> : <Navigate to={"/"} />}</>;
 }

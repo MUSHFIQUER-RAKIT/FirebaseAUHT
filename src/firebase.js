@@ -44,7 +44,7 @@ const registerWithEmailAndPassword = async (email, password) => {
 const loginWithEmailAndPassword = async (email, password) => {
   try {
     const response = await signInWithEmailAndPassword(auth, email, password);
-    return response;
+    return response.user;
   } catch (error) {
     throw error;
   }
@@ -52,8 +52,8 @@ const loginWithEmailAndPassword = async (email, password) => {
 
 const sendPasswordRest = async email => {
   try {
-    const response = await sendPasswordResetEmail(auth, email);
-    return response;
+    await sendPasswordResetEmail(auth, email);
+    return true;
   } catch (error) {
     throw error;
   }

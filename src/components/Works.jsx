@@ -26,6 +26,9 @@ export default function Works() {
         <Link to={"example4"}>
           <button>Example 4</button>
         </Link>
+        <Link to={"example5"}>
+          <button>Example 5</button>
+        </Link>
       </div>
       <Outlet />
     </motion.div>

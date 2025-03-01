@@ -17,6 +17,7 @@ import NotFound from "./page/NotFound";
 import Register from "./page/Register";
 import Reset from "./page/Reset";
 import Example4 from "./components/Animations/Example4";
+import Example5 from "./components/Animations/Example5";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,7 @@ const router = createBrowserRouter([
               { path: "example2", element: <Example2 /> },
               { path: "example3", element: <Example3 /> },
               { path: "example4", element: <Example4 /> },
+              { path: "example5", element: <Example5 /> },
             ],
           },
           {

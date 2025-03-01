@@ -16,6 +16,7 @@ import Login from "./page/Login";
 import NotFound from "./page/NotFound";
 import Register from "./page/Register";
 import Reset from "./page/Reset";
+import Example4 from "./components/Animations/Example4";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,7 @@ const router = createBrowserRouter([
               { path: "example1", element: <Example1 /> },
               { path: "example2", element: <Example2 /> },
               { path: "example3", element: <Example3 /> },
+              { path: "example4", element: <Example4 /> },
             ],
           },
           {

@@ -1,8 +1,17 @@
+import { motion } from "motion/react";
 import { Link, Outlet } from "react-router";
 
 export default function Works() {
   return (
-    <div>
+    <motion.div
+      exit={{
+        x: "-100vw",
+        transition: {
+          ease: "easeInOut",
+          duration: 1,
+        },
+      }}
+    >
       <h1 className="">Framer Motion Animation</h1>
       <div className="BUTTON mb-2">
         <Link to={"example1"}>
@@ -19,6 +28,6 @@ export default function Works() {
         </Link>
       </div>
       <Outlet />
-    </div>
+    </motion.div>
   );
 }

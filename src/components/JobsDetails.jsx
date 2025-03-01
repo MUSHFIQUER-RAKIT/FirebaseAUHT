@@ -20,7 +20,7 @@ export default function JobsDetails() {
           rem veritatis dolore id vero quasi earum pariatur magnam magni!
         </p>
       </h2>
-      <button className="bg-indigo-600 p-4 " onClick={() => navigate("/jobs")}>
+      <button className="bg-indigo-600 p-4 " onClick={() => navigate(-1)}>
         Back
       </button>
     </div>

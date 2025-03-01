@@ -39,6 +39,9 @@ export default function NavBar() {
               <NavLink to={"/contacts"}>
                 <li>Contacts</li>
               </NavLink>
+              <NavLink to={"/works"}>
+                <li>Works</li>
+              </NavLink>
               <NavLink to={"/jobs"}>
                 <li>Jobs</li>
               </NavLink>

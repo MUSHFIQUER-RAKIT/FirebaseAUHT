@@ -1,6 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
+import Example1 from "./components/Animations/Example1";
+import Example2 from "./components/Animations/Example2";
+import Example3 from "./components/Animations/Example3";
+import ErrorElement from "./components/ErrorElement";
 import JobsDetails, { JobsDetailsLoader } from "./components/JobsDetails";
 import PrivateRoutes from "./components/PrivateRoutes";
+import Works from "./components/Works";
 import Layout from "./Layout";
 import About from "./page/About";
 import Contacts from "./page/Contacts";
@@ -11,7 +16,6 @@ import Login from "./page/Login";
 import NotFound from "./page/NotFound";
 import Register from "./page/Register";
 import Reset from "./page/Reset";
-import ErrorElement from "./components/ErrorElement";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +29,16 @@ const router = createBrowserRouter([
         element: <PrivateRoutes />,
         children: [
           { path: "home", element: <Home /> },
+          {
+            path: "works",
+            element: <Works />,
+            children: [
+              { index: true, element: <Example1 /> },
+              { path: "example1", element: <Example1 /> },
+              { path: "example2", element: <Example2 /> },
+              { path: "example3", element: <Example3 /> },
+            ],
+          },
           {
             path: "jobs",
             element: <JobsLayout />,

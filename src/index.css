@@ -10,7 +10,9 @@
   align-items: center;
   /* height: 100vh; */
 }
-
+body {
+  background-color: var(--color-indigo-950);
+}
 .container h1 {
   font-size: 70px;
 }

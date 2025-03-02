@@ -72,5 +72,6 @@ export {
   loginWithEmailPassword,
   registerWithEmailAndPassword,
   sendPasswordRest,
-  signInWithGoogle,
+  signInWithGoogle
 };
+

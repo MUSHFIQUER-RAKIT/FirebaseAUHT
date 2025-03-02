@@ -2,13 +2,14 @@ import { createBrowserRouter } from "react-router-dom";
 import Example1 from "./components/Animations/Example1";
 import Example2 from "./components/Animations/Example2";
 import Example3 from "./components/Animations/Example3";
+import Example4 from "./components/Animations/Example4";
+import Example5 from "./components/Animations/Example5";
 import ErrorElement from "./components/ErrorElement";
 import JobsDetails, { JobsDetailsLoader } from "./components/JobsDetails";
 import PrivateRoutes from "./components/PrivateRoutes";
 import Works from "./components/Works";
 import Layout from "./Layout";
 import About from "./page/About";
-import Contacts from "./page/Contacts";
 import Home from "./page/Home";
 import Jobs, { jobsLoader } from "./page/Jobs";
 import JobsLayout from "./page/JobsLayout";
@@ -16,15 +17,14 @@ import Login from "./page/Login";
 import NotFound from "./page/NotFound";
 import Register from "./page/Register";
 import Reset from "./page/Reset";
-import Example4 from "./components/Animations/Example4";
-import Example5 from "./components/Animations/Example5";
+import Shops from "./page/Shops";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
     children: [
-      { path: "contacts", element: <Contacts /> },
+      { path: "shops", element: <Shops /> },
       { path: "about", element: <About /> },
 
       {
